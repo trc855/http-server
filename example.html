@@ -1,0 +1,19 @@
+<head>
+  <style>
+    h1 {
+      color: red;
+    }
+  </style>
+</head>
+
+<h1>Hello {{user_id}}!</h1>
+<button>Change color to blue</button>
+
+<script>
+  function changeTitleColor() {
+    let title = document.querySelector('h1');
+    title.style.color = 'blue';
+  }
+
+  document.querySelector('button').addEventListener('click', changeTitleColor);
+</script>
