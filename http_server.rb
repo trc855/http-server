@@ -16,6 +16,8 @@ loop do
       response = get_response(result)
 
       client.puts(response)
+    else
+      not_found_error(client)
     end
   elsif verb == "HEAD"
     if path.match(/^\/customers\/(.*?)$/)
@@ -23,6 +25,8 @@ loop do
       response = head_response
 
       client.puts(response)
+    else
+      not_found_error(client)
     end
   else
     internal_server_error(client)
