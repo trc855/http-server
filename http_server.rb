@@ -6,6 +6,7 @@ socket = TCPServer.new(80)
 
 loop do
   client = socket.accept
+
   first_line = client.gets
   verb, path = first_line.split.first(2)
 
@@ -13,11 +14,14 @@ loop do
     if result = path.match(/^\/customers\/(.*?)$/)
 
       response = get_response(result)
+
       client.puts(response)
     end
   elsif verb == "HEAD"
     if path.match(/^\/customers\/(.*?)$/)
+
       response = head_response
+
       client.puts(response)
     end
   else
