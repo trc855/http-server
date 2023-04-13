@@ -4,9 +4,7 @@ def get_response(result)
   body = IO.read('example.html')
   body.gsub!('{{user_id}}', user_id)
 
-  response = "HTTP/1.1 200\r\n" +
-             "Content-Type: text/html\r\n" +
-             "\r\n" +
+  response = head_response +
              "#{body}"
 end
 
